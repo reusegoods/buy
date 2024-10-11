@@ -541,6 +541,11 @@ const showCart =()=>{
     navbar.innerHTML =`<i class="fa-solid fa-bars"></i>`
 
 }
+const closeSupport = ()=>{
+  navContainer.classList.remove("move-navbar")
+  navBoolean = false;
+  navbar.innerHTML =`<i class="fa-solid fa-bars"></i>`
+}
 
 submitCreateAccount.addEventListener("submit", (e)=>{
     e.preventDefault()
