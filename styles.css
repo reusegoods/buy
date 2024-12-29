@@ -64,10 +64,10 @@ header h1{
   
    
   
-  color: var(--cancel-color1);
+  color: white;
   font-size: 40px;
   padding: 0;
-  box-shadow: 0 0 10px 1px;
+  
   background-color: black;
   border: 0;
 }
@@ -254,6 +254,7 @@ padding: 0 10px;
   height: 40px;
   font-size: 20px;
    background-color: var(--secondary-color2);
+   border-radius: 30px;
 }
 
 #view-cart {
@@ -555,10 +556,10 @@ padding: 0 10px;
   
    
   
-  color: var(--cancel-color1);
+  color: white;
   font-size: 40px;
   padding: 0;
-  box-shadow: 0 0 10px 1px;
+  
   background-color: black;
   border: 0;
 }
@@ -577,5 +578,8 @@ padding: 0 10px;
 button:active{
     background-color: goldenrod;
 }
+
+
+
 
 
