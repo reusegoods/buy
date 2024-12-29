@@ -176,7 +176,7 @@ products.forEach(({ id, name, description, cost, image, promo }) => {
 });
 const imageClass = document.getElementsByClassName("image-container");
 const images = [...imageClass];
-console.log(images)
+
 images.forEach((img) => {
     img.addEventListener("click", () => {
       const foundImage = products.find((el) => `name-${el.id}` === img.parentElement.id);
@@ -373,6 +373,7 @@ hideCart.addEventListener("click", () => {
     cart.style.display = "block";
     main.classList.add("hide-product");
     hideCart.textContent = "hide cart";
+    selectedItem.style.display = "none"
   } else {
     cart.style.display = "none";
     hideCart.textContent = "show cart";
@@ -416,8 +417,12 @@ confirmBtnBtc.addEventListener("click", ()=>{
     }, 5000)
 })
 
+
+
+
 const addItem = (el) => {
   hideCart.style.display = "block";
+  
 
   const papa = products.find((product) => `cart-${product.id}` === el.id);
   let tempItem = {};
@@ -477,6 +482,14 @@ const selectedAddItem = (el) => {
 
     numItem.costCount += 1;
   }
+
+  
+
+  
+
+  
+
+
   updateCartList(listArr);
   totalDiv.style.display = "block";
   payDiv.style.display = "block";
@@ -577,3 +590,46 @@ const logginInFunc =(el)=>{
 closeAccountBtn.addEventListener('click', closeCreateAccount)
 backToLoginBtn.addEventListener("click", closeLogin)
 
+
+
+
+const detailDiv = document.querySelectorAll(".detail div");
+
+const details = [...detailDiv];
+
+details.forEach((detail)=>{
+detail.addEventListener("click", ()=>{
+  
+const productParent = products.find((parenel) => `name-${parenel.id}` === detail.parentElement.parentElement.id);
+
+console.log(productParent)
+
+const { id, name, description, cost, image, promo } = productParent;
+
+  selectedItem.innerHTML = ` 
+      <div id="selected">
+      <button onclick="toStore()" id="back-to-store"><i class="fa-solid fa-xmark"></i></button>
+        <img id="selected-image" src="${image[0]}" />
+        <button onclick = "previousImage()" id="previous-image">
+          <i class="fa-solid fa-backward"></i></button
+        ><button onclick="nextImage()" id="next-image"><i class="fa-solid fa-forward"></i></button>
+     </div>
+    <div id="item-description">
+      <div id="selected-name"><span>${name}</span></div>
+     <div><span>$${cost}<span class="promo"> ${promo}% OFF</span></span></div>
+     <div id="describe">
+     <h4>description</h4><p>${description}</p></div>
+     <button onclick="selectedAddItem(${id})" id= "selected-btn" class="add-selected">add to cart</button>
+     
+    </div>`;
+  currentImage = image[0];
+
+  selectedItem.style.display = "block";
+  main.classList.add("hide-product")
+  z = 0;
+
+
+})
+
+
+})
